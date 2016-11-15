@@ -2,30 +2,30 @@
 <table class="table-view  table" cellspacing=0 >
   <tr>
     <th>email</th>
-    <td><?=$r[email] ?></td>
+    <td><?php echo $r[email] ?></td>
   </tr>
   <tr>
     <th>用户名</th>
-    <td><?=$r[username] ?></td>
+    <td><?php echo $r[username] ?></td>
   </tr>
   <tr>
     <th>密码</th>
-    <td><?=$r[password] ?></td>
+    <td><?php echo $r[password] ?></td>
   </tr>
   <tr>
     <th>发布时间</th>
-    <td><?=$r[post_time] ?></td>
+    <td><?php echo $r[post_time] ?></td>
   </tr>
   <tr>
     <th>更新时间</th>
-    <td><?=$r[update_time] ?></td>
+    <td><?php echo $r[update_time] ?></td>
   </tr>
   <tr>
     <th>级别</th>
-    <td><?=$r[level] ?></td>
+    <td><?php echo $r[level] ?></td>
   </tr>
   <tr>
     <th>信息</th>
-    <td><?=$r[info] ?></td>
+    <td><?php echo $r[info] ?></td>
   </tr>
 </table>

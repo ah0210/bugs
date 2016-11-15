@@ -7,7 +7,7 @@ $(function(){
     if(!$(this).val())return;
     if(ajax) return;
     ajax = 1;
-    $.post('<?=BASE?>home/pid/'+$(this).val()+'/',function(data){
+    $.post('<?php echo BASE?>home/pid/'+$(this).val()+'/',function(data){
       if(data == null) {
         $('#unit').val('');
         $('#alert_level').val('');
@@ -33,7 +33,7 @@ $(function(){
     if(!$(this).val())return;   
     if(ajax) return;
     ajax = 1;
-    $.post('<?=BASE?>home/pname/'+$(this).val()+'/',function(data){
+    $.post('<?php echo BASE?>home/pname/'+$(this).val()+'/',function(data){
       if(data == null) {
         $('#unit').val('');
         $('#alert_level').val('');
@@ -57,7 +57,7 @@ $(function(){
   
   $('#opid').blur(function(){
     if(!$(this).val())return;
-    $.post('<?=BASE?>home/pid/'+$(this).val()+'/',function(data){
+    $.post('<?php echo BASE?>home/pid/'+$(this).val()+'/',function(data){
       if(data == null) {
         $('#ounit').val('');
         $('#oalert_level').val('');
@@ -80,7 +80,7 @@ $(function(){
 
   $('#opname').blur(function(){
     if(!$(this).val())return;
-    $.post('<?=BASE?>home/pname/'+$(this).val()+'/',function(data){
+    $.post('<?php echo BASE?>home/pname/'+$(this).val()+'/',function(data){
       if(data == null) {
         $('#ounit').val('');
         $('#oalert_level').val('');
@@ -110,7 +110,7 @@ $(function(){
   <li><label for="pid" >品号</label><input type="text" placeholder="双击选择" required name="pid" id="pid" list="pid_item" autocomplete="off" /></li>
   <li><label for="pname" >品名</label><input type="text" placeholder="双击选择" required name="pname" id="pname" list="pname_item" autocomplete="off" /></li>
   <li><label for="num" >数量</label><input required type="text" name="num" id="num" autocomplete="off" /></li>
-  <li><label for="eku_id" >单号</label><input type="text" name="eku_id" id="eku_id" autocomplete="off" value="<?=$_GET['action']?$_GET['eku_id']:''?>"/></li>
+  <li><label for="eku_id" >单号</label><input type="text" name="eku_id" id="eku_id" autocomplete="off" value="<?php echo $_GET['action']?$_GET['eku_id']:''?>"/></li>
   <li><label for="customer" >客户</label><input type="text" name="customer" id="customer" /></li>
   <li><label for="remark" >备注</label><input type="text" class="long" name="remark" id="remark" autocomplete="off"/></li>
   <li><label>  <select type="text" name="action_label" id="action_label" >
@@ -125,7 +125,7 @@ $(function(){
   <li><label for="kuwei" >库位编号</label><input type="text" name="kuwei" id="kuwei" /></li>
   <li><label for="balance" >当前库存</label><input type="text" disabled="true" name="balance" id="balance" list="balance_item" autocomplete="off" /></li>
   <li><label for="alert_level" >警戒库存</label><input type="text" name="alert_level" id="alert_level" /></li>
-  <li><label for="datetime" >入库时间</label><input type="text" class="medium"  name="datetime" id="datetime" autocomplete="off" value="<?=date('Y-m-d H:i:s')?>"/></li>
+  <li><label for="datetime" >入库时间</label><input type="text" class="medium"  name="datetime" id="datetime" autocomplete="off" value="<?php echo date('Y-m-d H:i:s')?>"/></li>
 </ul>
 </form>
 <div class="clear" ></div>
@@ -138,7 +138,7 @@ $(function(){
    <li ><label for="opid" >品号</label><input type="text" required name="pid" id="opid" list="pid_item" autocomplete="off" /></li>
   <li ><label for="opname" >品名</label><input type="text" required name="pname" id="opname" list="pname_item"  autocomplete="off" /></li>
   <li  ><label for="onum" >数量</label><input tabindex="21" required type="text" name="num" id="onum" autocomplete="off" /></li>
- <li ><label for="oeku_id" >单号</label><input type="text" name="eku_id" id="oeku_id"  value="<?=$_GET['action']==-1?$_GET['eku_id']:''?>"/></li>
+ <li ><label for="oeku_id" >单号</label><input type="text" name="eku_id" id="oeku_id"  value="<?php echo $_GET['action']==-1?$_GET['eku_id']:''?>"/></li>
   <li><label for="ocustomer" >客户</label><input type="text" name="customer" id="ocustomer" /></li>
    <li><label for="oremark" >备注</label><input type="text" class="long" name="remark" id="oremark" autocomplete="off"/></li>
   <li><label>  <select type="text" name="action_label" id="oaction_label" >
@@ -153,7 +153,7 @@ $(function(){
   <li><label for="okuwei" >库位编号</label><input type="text" name="kuwei" id="okuwei" /></li>
  <li><label for="obalance" >当前库存</label><input type="text" disabled="true" name="balance" id="obalance" list="balance_item" autocomplete="off" /></li>
   <li><label for="oalert_level" >警戒库存</label><input type="text" name="alert_level" id="oalert_level" /></li>
-  <li><label for="odatetime" >入库时间</label><input type="text" class="medium" name="datetime" id="odatetime" autocomplete="off" value="<?=date('Y-m-d H:i:s')?>"/></li>
+  <li><label for="odatetime" >入库时间</label><input type="text" class="medium" name="datetime" id="odatetime" autocomplete="off" value="<?php echo date('Y-m-d H:i:s')?>"/></li>
 
 </ul>
 </form>
@@ -162,13 +162,13 @@ $(function(){
 
 <datalist id="pid_item">
 <?foreach($eku as $e):?>
-  <option value="<?=$e['pid']?>" > 
+  <option value="<?php echo $e['pid']?>" >
 <?endforeach;?>
 </datalist>
 
 <datalist id="pname_item">
 <?foreach($eku as $e):?>
-  <option value="<?=$e['pname']?>" > 
+  <option value="<?php echo $e['pname']?>" >
 <?endforeach;?>
 </datalist>
 

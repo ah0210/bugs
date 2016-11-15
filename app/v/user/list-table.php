@@ -1,5 +1,5 @@
 <table class="user-list-table table-list table" cellspacing=0 >
-<?if(is_array($records )){?>
+<?php if(is_array($records )){?>
   <tr>
     <th>email</th>
     <th>用户名</th> 
@@ -11,20 +11,20 @@
       操作
     </th>
   </tr>
-<?foreach ($records as $r ){?>
+<?php  foreach ($records as $r ){?>
   <tr>
-    <td><?=$r['email']?></td>
-    <td><?=$r['username']?></td> 
-    <td><?=$r['post_time']?></td>
-    <td><?=$r['update_time']?></td>
-    <td><?=$r['level']?></td>
-    <td><?=$r['info']?></td>
+    <td><?php echo $r['email']?></td>
+    <td><?php echo $r['username']?></td>
+    <td><?php echo $r['post_time']?></td>
+    <td><?php echo $r['update_time']?></td>
+    <td><?php echo $r['level']?></td>
+    <td><?php echo $r['info']?></td>
     <td>
-      <a href="/user/view/<?=$r['id']?>" >查看</a>
-      <a href="/user/edit/<?=$r['id']?>" >编辑</a> 
+      <a href="/user/view/<?php echo $r['id']?>" >查看</a>
+      <a href="/user/edit/<?php echo $r['id']?>" >编辑</a>
     </td>
   </tr>
-<?  }
+<?php   }
 }?>
 </table>
-<?=$pagination?>
+<?php  echo $pagination?>

@@ -17,7 +17,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="/">BugTrace</a>
+          <a class="brand" href="http://172.25.210.5/bug/">BugTrace</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <?php foreach($menu as $k=>$v){?>

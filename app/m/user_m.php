@@ -49,19 +49,23 @@ class user_m extends m {
     return true;
   }
   
-  function login($email,$password)
-  {
-    $email = addslashes($email);
-    $user = $this->db->query("select * from user where email='$email'");
+  function login($email,$password){
+      $name = addslashes($email);
+      if(is_email($name)) {
+          $user = $this->db->query("select * from user where email='$name'");
+      } else {
+          $user = $this->db->query("select * from user where username='$name'");
+      }
+
     if(!isset($user[0])){
       $this->login_err = '用户不存在！';
       return FALSE;
-      $uid = $this->add_user( array('email'=>$email, 'password'=> $password,'level'=>20 ));
+      //$uid = $this->add_user( array('email'=>$email, 'password'=> $password,'level'=>20 ));
       /*
       $app_id = load('m/app')->add(array('title'=>'未命名','create_time'=>time(),'admin'=>$uid));
       $this->update($uid,array('app_id'=>$app_id));
       */
-      $user[0] = $this->get($uid);
+      //$user[0] = $this->get($uid);
     }
 
     if($user[0]['password'] == '') //$this->encode($password) )

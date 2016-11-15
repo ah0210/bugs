@@ -24,8 +24,8 @@ var filt = function(str){$('#bugs').dataTable().fnFilter( str );}
 <div class="panel_block" >
 <ul class="nav nav-pills" >
   <li> <a href="javascript: filt( '' );" >全部</a></li>
-  <li> <a href="javascript: filt( 'F:<?=$data['users'][$uid]?>' );" >我发布的</a></li>
-  <li> <a href="javascript: filt( 'D:<?=$data['users'][$uid]?>' );" >我执行的</a></li>
+  <li> <a href="javascript: filt( 'F:<?php echo $data['users'][$uid]?>' );" >我发布的</a></li>
+  <li> <a href="javascript: filt( 'D:<?php echo $data['users'][$uid]?>' );" >我执行的</a></li>
   <li> <a href="javascript: filt( '未修复' );" >未修复</a></li>
   <li> <a href="javascript: filt( '已解决' );" >已解决</a></li>
 </ul>
@@ -44,21 +44,21 @@ var filt = function(str){$('#bugs').dataTable().fnFilter( str );}
     </tr>
   </thead>
   <tbody>
-    <?
+    <?php
     $i=1;
     foreach($bugs as $b){?>
     <tr>
-      <td><?=$i++?></td>
-      <td><a href="?/bugtrace/view/<?=$b['id']?>/" ><?=$b['title']?></a></td>
-      <td><div class="cc cc<?=$b['priority']?>" ><?=$b['priority']?> : <?=$prio[$b['priority']]?></div></td>
-      <td><div class="cc cc<?=$b['state']?2:5?>" ><?=$b['state']?'已解决':'未修复'?></div></td>
-      <td>D:<?=$data['users'][$b['doer']]?></td>
-      <td><?=$b['module']?></td>
-      <td><?=$b['version']?></td>
-      <td>F:<?=$data['users'][$b['poster']]?></td>
-      <td><?=date('Y-m-d',$b['update_time'])?></td>
+      <td><?php echo $i++?></td>
+      <td><a href="?/bugtrace/view/<?php echo $b['id']?>/" ><?php echo $b['title']?></a></td>
+      <td><div class="cc cc<?php echo $b['priority']?>" ><?php echo $b['priority']?> : <?php echo $prio[$b['priority']]?></div></td>
+      <td><div class="cc cc<?php echo $b['state']?2:5?>" ><?php echo $b['state']?'已解决':'未修复'?></div></td>
+      <td>D:<?php echo $data['users'][$b['doer']]?></td>
+      <td><?php echo $b['module']?></td>
+      <td><?php echo $b['version']?></td>
+      <td>F:<?php echo $data['users'][$b['poster']]?></td>
+      <td><?php echo date('Y-m-d',$b['update_time'])?></td>
     </tr>
-    <?}?>
+    <?php }?>
   </tbody>
 </table>
 <div class="clear"  ></div>

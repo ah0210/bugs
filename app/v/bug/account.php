@@ -25,7 +25,7 @@
 <form method="POST" >
   <ul>
     <li>
-      <input placeholder="Email"  type="email" class="medium"  name="email" value="<?=$val['email']?>" />
+      <input placeholder="Email"  type="email" class="medium"  name="email" value="<?php echo $val['email']?>" />
 	  <input type="submit"  value="修改登录email" class="btn"  /> 
     </li> 
    </ul>
@@ -37,7 +37,7 @@
 <form method="POST" >
   <ul>
     <li>
-		<input placeholder="姓名"  type="text" class="medium"  name="username" value="<?=$val['username']?>" />
+		<input placeholder="姓名"  type="text" class="medium"  name="username" value="<?php echo $val['username']?>" />
 		<input type="submit"  value="修改显示姓名" class="btn"  /> 
     </li>
   </ul>
